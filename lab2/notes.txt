@@ -1,0 +1,2 @@
+g++ ex4.cpp header_ex2.cpp -o ex4 `pkg-config --cflags --libs opencv4`
+
