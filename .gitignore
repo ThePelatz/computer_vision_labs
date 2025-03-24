@@ -1,0 +1,11 @@
+
+*.o
+
+
+a.out
+*.exe
+*.out
+
+
+build/
+bin/
