@@ -2,14 +2,14 @@
 
 Martinez Zoren
 
-# Lab 1 | Intro to OpenCV, pixel manipulation, transformations
+### Lab 1 | Intro to OpenCV, pixel manipulation, transformations
 - Basic image operations
 - Interacting with pixels
 - Implementing averaging, Sobel, min/max filters
 
 [Tasks full description](https://github.com/ThePelatz/computer_vision_labs/blob/master/lab1/Lab%201%20-%20Intro%20OpenCV%20pix%20manipulation%20transformations.pdf)
 
-# Lab 2 | Filters and Histogram Equalization
+### Lab 2 | Filters and Histogram Equalization
 
 - Implementation of image processing filters (Max, Min, Median, Gaussian).
 - Use of histogram equalization function.
