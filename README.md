@@ -15,3 +15,5 @@ Martinez Zoren
 - Use of histogram equalization function.
 - Application of filters for noise removal and image enhancement.
 - Analysis and visualization of image histograms.
+
+[Tasks full description](https://github.com/ThePelatz/computer_vision_labs/blob/master/lab2/Lab%202%20-%20Filters%20and%20histogram%20equalization.pdf)
