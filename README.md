@@ -17,3 +17,13 @@ Martinez Zoren
 - Analysis and visualization of image histograms.
 
 [Tasks full description](https://github.com/ThePelatz/computer_vision_labs/blob/master/lab2/Lab%202%20-%20Filters%20and%20histogram%20equalization.pdf)
+
+
+## Lab 3 | Mouse Callback and Color Segmentation
+- Mouse event handling with setMouseCallback()
+- Pixel value retrieval and neighborhood averaging
+- Color segmentation using BGR and HSV thresholds
+- Mask creation for object selection
+- Image modification with custom colors based on segmentation
+
+[Tasks full description](https://github.com/ThePelatz/computer_vision_labs/blob/master/lab3/Lab%203%20-%20Mouse%20callback%20and%20color%20segmentation-3.pdf)
