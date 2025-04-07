@@ -16,7 +16,7 @@ static void onMouse( int event, int x, int y, int, void* param)
     float avg[3] = {0.0,0.0,0.0}; 
     for(int i = x-4; i < x+4; i++){
         for(int j = y-4; j < y+4; j++){
-            if(i >= 0 & j>=0 && i<img->rows && j<img->cols){
+            if(i >= 0 & j>=0 && i<img->cols && j<img->rows){
                 avg[0] +=  (int) img->at<Vec3b>(j, i) [0];
                 avg[1] +=  (int) img->at<Vec3b>(j, i) [1];
                 avg[2] +=  (int) img->at<Vec3b>(j, i) [2];
@@ -24,9 +24,9 @@ static void onMouse( int event, int x, int y, int, void* param)
         }
     }
 
-    std::cout << "Avg Blue: " << avg [0] / (9^2) << std::endl;
-    std::cout << "Avg Green: " << avg [1] / (9^2) << std::endl;
-    std::cout << "Avg Red: " << avg [2] / (9^2) << std::endl;
+    std::cout << "Avg Blue: " << avg [0] / (9*9) << std::endl;
+    std::cout << "Avg Green: " << avg [1] / (9*9) << std::endl;
+    std::cout << "Avg Red: " << avg [2] / (9*9) << std::endl;
 
     return; 
 
