@@ -27,9 +27,9 @@ static void onMouse( int event, int x, int y, int, void* param)
         }
     }
 
-    std::cout << "Avg Blue: " << avg [0] / (9*9) << std::endl;
-    std::cout << "Avg Green: " << avg [1] / (9*9) << std::endl;
-    std::cout << "Avg Red: " << avg [2] / (9*9) << std::endl;
+    std::cout << "Avg Hue: " << avg [0] / (9*9) << std::endl;
+    std::cout << "Avg Saturation: " << avg [1] / (9*9) << std::endl;
+    std::cout << "Avg Value: " << avg [2] / (9*9) << std::endl;
 
 
     searchTshirt(img);
@@ -46,18 +46,19 @@ void searchTshirt(cv::Mat* img){
     mask = cv::Mat::zeros(rows,cols, CV_8U);
     int threshold = 65;
 
-    int targetBlue = 28;
-    int targetGreen = 120;
-    int targetRed = 160;
+    int targetHue = 16;
+    int targetSaturation = 170;
+    int targetValue = 155;
 
     for(int i=0; i<img->rows; i++){
         for(int j=0; j<img->cols; j++){
             
-           std::vector<float> avgColor = getAvgColor(i,j,img);
-            if( (avgColor[0] > targetBlue - threshold && avgColor[0] < targetBlue + threshold)      &&
-                (avgColor[1] > targetGreen - threshold && avgColor[1] < targetGreen + threshold)    &&
-                (avgColor[2] > targetRed - threshold && avgColor[2] < targetRed + threshold) ){
-                    mask.at<unsigned char>(i,j) = 255;
+            std::vector<float> avgColor = getAvgColor(i, j, img);
+
+            if( (avgColor[0] > targetHue - threshold && avgColor[0] < targetHue + threshold) &&
+                (avgColor[1] > targetSaturation - threshold && avgColor[1] < targetSaturation + threshold) &&
+                (avgColor[2] > targetValue - threshold && avgColor[2] < targetValue + threshold) ) {
+                    mask.at<unsigned char>(i, j) = 255;
                 }
         }
     }
@@ -104,6 +105,9 @@ int main(int argc, char** argv)
     
     cv::Mat img = cv::imread(argv[1]);
 
+    Mat fullImageHSV;
+    cvtColor(img, fullImageHSV, cv::COLOR_BGR2HSV);
+
     if(img.rows == 0 && img.cols == 0){
         std::cout << "Impossible to open the image. Check the name of the file.\n";
         return 0;
@@ -111,7 +115,7 @@ int main(int argc, char** argv)
 
     cv::namedWindow("robocop");
     cv::imshow("robocop", img);
-    setMouseCallback( "robocop", onMouse, &img);
+    setMouseCallback( "robocop", onMouse, &fullImageHSV);
     
     waitKey(0);
 
