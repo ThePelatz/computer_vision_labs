@@ -5,18 +5,17 @@
 using namespace cv;
 using std::cout;
 const int alpha_slider_max = 100;
-int alpha_slider;
-int thresholdMin;
+int thresholdMin = 0;
+int thresholdMax = 0;
 cv::Mat img;
 
 static void on_trackbar( int, void* )
 {
-    thresholdMin = (int) alpha_slider ;
     std::cout << "ThresholdMin: " << thresholdMin << std::endl;
+    std::cout << "ThresholdMin: " << thresholdMax << std::endl;
 
     cv::Mat edges;
-    double thresholdMax = 150;
-    cv::Canny(img, edges, thresholdMin, thresholdMax);
+    cv::Canny(img, edges, thresholdMin, thresholdMax + 200);
 
     cv::imshow("Canny image", edges);
 
@@ -40,12 +39,15 @@ int main(int argc, char** argv)
     }
 
 
-   alpha_slider = 0;
    namedWindow("Canny image", WINDOW_AUTOSIZE); // Create Window
-   char TrackbarName[50];
-   snprintf( TrackbarName, sizeof(TrackbarName), "Alpha x %d", alpha_slider_max );
-   createTrackbar( TrackbarName, "Canny image", &alpha_slider, alpha_slider_max, on_trackbar );
-   on_trackbar( alpha_slider, 0 );
+   char TrackbarName1[50];
+   snprintf( TrackbarName1, sizeof(TrackbarName1), "Min threshold%d", alpha_slider_max );
+   char TrackbarName2[50];
+   snprintf( TrackbarName2, sizeof(TrackbarName2), "Max threshold%d", alpha_slider_max );
+   createTrackbar( TrackbarName1, "Canny image", &thresholdMin, alpha_slider_max, on_trackbar );
+   createTrackbar( TrackbarName2, "Canny image", &thresholdMax, 100, on_trackbar );
+   on_trackbar( thresholdMin, 0 );
+   on_trackbar( thresholdMax, 0 );
    waitKey(0);
    return 0;
 }
