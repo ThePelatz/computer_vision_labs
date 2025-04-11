@@ -29,3 +29,5 @@ Martinez Zoren
 - Application of the Hough transform
 - Application of the circular Hough transform
 - Segmentation of uniform areas
+
+[Tasks full description](https://github.com/ThePelatz/computer_vision_labs/blob/master/lab4/Lab%204%20-%20Edge%20and%20line%20detection.pdf)
