@@ -45,19 +45,22 @@ void searchTshirt(cv::Mat* img){
     int rows = img->rows;
     int cols = img->cols;
     mask = cv::Mat::zeros(rows,cols, CV_8U);
-    int threshold = 70;
+    
+    int thresholdBlue = 30;
+    int thresholdGreen = 70;
+    int thresholdRed = 70;
 
-    int targetBlue = 28;
-    int targetGreen = 120;
-    int targetRed = 160;
+    int targetBlue = 25;
+    int targetGreen = 100;
+    int targetRed = 130;
 
     for(int i=0; i<img->rows; i++){
         for(int j=0; j<img->cols; j++){
             
            std::vector<float> avgColor = getAvgColor(i,j,img);
-            if( (avgColor[0] > targetBlue - threshold && avgColor[0] < targetBlue + threshold)      &&
-                (avgColor[1] > targetGreen - threshold && avgColor[1] < targetGreen + threshold)    &&
-                (avgColor[2] > targetRed - threshold && avgColor[2] < targetRed + threshold) ){
+            if( (avgColor[0] > targetBlue - thresholdBlue && avgColor[0] < targetBlue + thresholdBlue)      &&
+                (avgColor[1] > targetGreen - thresholdGreen && avgColor[1] < targetGreen + thresholdGreen)  &&
+                (avgColor[2] > targetRed - thresholdRed && avgColor[2] < targetRed + thresholdRed) ){
                     mask.at<unsigned char>(i,j) = 255;
                 }
         }
