@@ -15,15 +15,17 @@ int main(int argc, char** argv)
 {
     
    
-    if(argc<2){
-        std::cout << "Uncorrect number of parameters. Please specify the name of the image.\n";
-        return 0;
-    }
+    // if(argc<2){
+    //     std::cout << "Uncorrect number of parameters. Please specify the name of the image.\n";
+    //     return 0;
+    // }
     
-    cv::Mat src = cv::imread(argv[1]);
+    // cv::Mat src = cv::imread(argv[1]);
+
+    cv::Mat src = cv::imread("street_scene.png");
 
     if(src.rows == 0 && src.cols == 0){
-        std::cout << "Impossible to open the image. Check the name of the file.\n";
+        std::cout << "Impossible to open the image 'street_scene.png '\n";
         return 0;
     }
 
