@@ -86,7 +86,7 @@ void searchWhiteLines(cv::Mat* img){
     
     imshow ("WhiteLines", mask);
 
-    imshow("Detected Lines (in red) - Probabilistic Line Transform", cdstP);
+    imshow("Detected Lines (in green)", cdstP);
 
     colorRoadRegion(img,lines);
 
