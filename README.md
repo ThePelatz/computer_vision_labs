@@ -11,7 +11,7 @@ Martinez Zoren
 
 ### Lab 2 | Filters and Histogram Equalization
 
--Max , min, median, gaussian filters and applications to sample images
+- Max , min, median, gaussian filters and applications to sample images
 - Histogram equalization
 
 [Tasks full description](https://github.com/ThePelatz/computer_vision_labs/blob/master/lab2/Lab%202%20-%20Filters%20and%20histogram%20equalization.pdf)
